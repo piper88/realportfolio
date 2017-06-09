@@ -1,0 +1,25 @@
+{
+  "name": "realportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG='portfolio*' node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prungy88/realportfolio.git"
+  },
+  "author": "sarah.debey@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prungy88/realportfolio/issues"
+  },
+  "homepage": "https://github.com/prungy88/realportfolio#readme",
+  "dependencies": {
+    "debug": "^2.6.8",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3"
+  }
+}

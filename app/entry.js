@@ -18,25 +18,25 @@ const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
 
 //create angular modules
-const app = angular.module(camelcase(__TITLE__), [ngTouch, ngAnimate, uiRouter, uiBootstrap]);
+const app = angular.module(__TITLE__, [ngTouch, ngAnimate, uiRouter, uiBootstrap]);
 
 app.run(['$rootScope', function($rootScope){
   $rootScope.title = __TITLE__;
 }]);
 
-//load config
-// let context = require.context('./config/', true, /\.js$/);
-// context.keys().forEach(path => {
-//   app.config(context(path));
-// });
+// load config
+let context = require.context('./config/', true, /\.js$/);
+context.keys().forEach(path => {
+  app.config(context(path));
+});
 
-// // load view controllers
-// context = require.context('./view/', true, /\.js$/);
-// context.keys().forEach( key => {
-//   let name = pascalcase(path.basename(key, '.js')); // name controller based on file name
-//   let module = context(key); // value of module.exports
-//   app.controller(name, module);
-// });
+// load view controllers
+context = require.context('./view/', true, /\.js$/);
+context.keys().forEach( key => {
+  let name = pascalcase(path.basename(key, '.js')); // name controller based on file name
+  let module = context(key); // value of module.exports
+  app.controller(name, module);
+});
 //
 // // load services
 // context = require.context('./service/', true, /\.js$/);
@@ -62,4 +62,4 @@ app.run(['$rootScope', function($rootScope){
 // });
 //
 // //load boostrap
-// angular.bootstrap(document, [camelcase(__TITLE__)]);
+angular.bootstrap(document, [camelcase(__TITLE__)]);

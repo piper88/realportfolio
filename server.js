@@ -9,6 +9,9 @@ dotenv.load();
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(express.static(__dirname + '/app'));
+
+
 const server = module.exports = app.listen(PORT, () => {
   debug(`server up on ${PORT}`);
 });

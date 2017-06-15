@@ -63,4 +63,4 @@ context.keys().forEach( key => {
 // });
 //
 // //load boostrap
-// angular.bootstrap(document, [camelcase(__TITLE__)]);
+angular.bootstrap(document, [camelcase(__TITLE__)]);

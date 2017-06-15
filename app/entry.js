@@ -18,7 +18,8 @@ const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
 
 //create angular modules
-const app = angular.module(__TITLE__, [ngTouch, ngAnimate, uiRouter, uiBootstrap]);
+//__TITLE__ comes from webpack, which comes from .client.env
+const app = angular.module(camelcase(__TITLE__), [ngTouch, ngAnimate, uiRouter, uiBootstrap]);
 
 app.run(['$rootScope', function($rootScope){
   $rootScope.title = __TITLE__;
@@ -62,4 +63,4 @@ context.keys().forEach( key => {
 // });
 //
 // //load boostrap
-angular.bootstrap(document, [camelcase(__TITLE__)]);
+// angular.bootstrap(document, [camelcase(__TITLE__)]);

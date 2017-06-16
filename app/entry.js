@@ -1,7 +1,7 @@
 'use strict';
 
 //build sass
-// require('./scss/main.scss');
+require('./scss/main.scss');
 
 //require node modules
 const path = require('path');
@@ -16,10 +16,11 @@ const ngTouch = require('angular-touch');
 const ngAnimate = require('angular-animate');
 const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
+const ngFileUpload = require('ng-file-upload');
 
 //create angular modules
 //__TITLE__ comes from webpack, which comes from .client.env
-const app = angular.module(camelcase(__TITLE__), [ngTouch, ngAnimate, uiRouter, uiBootstrap]);
+const app = angular.module(camelcase(__TITLE__), [ngTouch, ngAnimate, uiRouter, uiBootstrap, ngFileUpload]);
 
 app.run(['$rootScope', function($rootScope){
   $rootScope.title = __TITLE__;
@@ -48,12 +49,12 @@ context.keys().forEach( key => {
 // });
 //
 // // load components
-// context = require.context('./component/', true, /\.js$/);
-// context.keys().forEach( key => {
-//   let name = camelcase(path.basename(key, '.js'));
-//   let module = context(key); // value of module.exports
-//   app.component(name, module);
-// });
+context = require.context('./component/', true, /\.js$/);
+context.keys().forEach( key => {
+  let name = camelcase(path.basename(key, '.js'));
+  let module = context(key); // value of module.exports
+  app.component(name, module);
+});
 //
 // context = require.context('./filter/', true, /\.js$/);
 // context.keys().forEach( key => {

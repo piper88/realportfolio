@@ -7,6 +7,7 @@ module.exports = {
 };
 
 function WelcomeController($log, $location) {
-  console.log('everything is fine...');
+  $log.debug('init welcomeCtrl');
+
   $location.path('/landing');
 }
